@@ -1,0 +1,16 @@
+name: "Setup Preflight"
+description: "Setup Preflight by installing, downloading, and adding it to the path."
+author: "Spectral"
+branding:
+  icon: "play-circle"
+  color: "gray-dark"
+inputs:
+  preflight-version:
+    description: The Preflight version to install.
+    default: "1.1.1"
+outputs:
+  preflight-version:
+    description: "The Preflight version that was installed."
+runs:
+  using: "node12"
+  main: "main.js"

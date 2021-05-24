@@ -1,0 +1,30 @@
+name: test
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        preflight:
+          ["1.1.1", "1.0.0"]
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup Preflight
+        uses: ./
+        with:
+          preflight-version: ${{ matrix.preflight }}
+
+      - name: Test
+        run: npm run test
+      - name: Test curl-install deno with preflight
+        if: runner.os == 'Linux'
+        run:  curl -fsSL https://deno.land/x/install/install.sh | preflight run sha256=561aa9d6533ca228c43e784bf9fe8b74c8bfd8c443386dbf20bb714ac2969ceb
