@@ -7,7 +7,7 @@ branding:
 inputs:
   preflight-version:
     description: The Preflight version to install.
-    default: "1.1.1"
+    default: "1.1.3"
 outputs:
   preflight-version:
     description: "The Preflight version that was installed."
