@@ -10,7 +10,7 @@ Use the following to set up a `preflight` binary that's available in your workfl
       - name: Setup Preflight
         uses: spectralops/setup-preflight@v1
         with:
-            preflight-version: 1.1.3
+            preflight-version: "1.1.3"
 ```
 
 And then, use preflight. Turn this risky business:
